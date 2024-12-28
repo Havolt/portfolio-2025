@@ -1,0 +1,15 @@
+.bio__img {
+   will-change: filter;
+   transition: filter 300ms;
+ }
+ .bio__img:hover {
+   filter: drop-shadow(0 0 2em #646cffaa);
+ }
+ .bio__img.react:hover {
+   filter: drop-shadow(0 0 2em #61dafbaa);
+ }
+
+ .bio__img img {
+    height: 30rem;
+    border-radius: 4rem;
+ }
