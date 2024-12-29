@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import BioLinks from '@/components/BioLinks/BioLinks';
+import BioBlurb from '@/components/BioBlurb/BioBlurb';
 import bioImg from '@/assets/bio.png'
 import './Bio.css';
 
@@ -57,7 +58,8 @@ export default function Bio() {
                 <img src={bioImg} alt="Headshot" />
             </div>
 
-            <h1 className="bio__title">Hi, I'm Mark. Web developer and designer.</h1>
+            <h1 className="bio__title">Hi, I'm Mark.</h1>
+            <BioBlurb />
             <BioLinks />
         </div>
     );
