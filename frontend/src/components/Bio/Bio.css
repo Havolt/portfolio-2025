@@ -1,15 +1,12 @@
 .bio__img {
-   will-change: filter;
-   transition: filter 300ms;
- }
- .bio__img:hover {
-   filter: drop-shadow(0 0 2em #646cffaa);
- }
- .bio__img.react:hover {
-   filter: drop-shadow(0 0 2em #61dafbaa);
+   will-change: transform;
+   transition: transform 300ms ease-out;
+   transform-style: preserve-3d;
+   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
  }
 
  .bio__img img {
     height: 30rem;
     border-radius: 4rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
  }
