@@ -40,8 +40,8 @@ export default function Bio() {
         const centerY = top + height / 2;
         
         // Reduced rotation amount for subtler effect
-        const rotateX = -(e.clientY - centerY) / 25;
-        const rotateY = (e.clientX - centerX) / 25;
+        const rotateX = -(e.clientY - centerY) / 15;
+        const rotateY = (e.clientX - centerX) / 15;
         
         imageRef.current.style.transform = 
             `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
