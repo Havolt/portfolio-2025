@@ -1,14 +1,48 @@
+.bio__card {
+  width: 23rem;
+  height: 30rem;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 3rem rgba(213, 213, 213, 0.15);
+  border-radius: 20%;
+  overflow: hidden;
+}
+
+.bio__card--flipped {
+  .bio__img {
+    display: none;
+  }
+  .bio__reverse {
+    display: block;
+  }
+}
+
 .bio__img {
-   will-change: transform;
-   transition: transform 300ms ease-out;
-   transform-style: preserve-3d;
-   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  position: relative;
+  will-change: transform;
+  transition: transform 300ms ease-out;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  z-index: 2;
  }
+
+ .bio__reverse {
+    background-color: #5c5c5c;
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+ }
+
+
 
  .bio__img img {
     height: 30rem;
-    border-radius: 20%;
-    box-shadow: 0 0 3rem rgba(213, 213, 213, 0.15);
  }
 
  .bio__title {

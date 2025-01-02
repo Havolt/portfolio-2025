@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BioLinks from '@/components/BioLinks/BioLinks';
 import BioBlurb from '@/components/BioBlurb/BioBlurb';
 import bioImg from '@/assets/bio.png'
@@ -6,6 +6,7 @@ import './Bio.css';
 
 export default function Bio() {
     const imageRef = useRef<HTMLDivElement>(null);
+    const [isFlipped, setIsFlipped] = useState(false);
 
     useEffect(() => {
         // Rotate the image when the mouse moves over it
@@ -52,10 +53,19 @@ export default function Bio() {
         imageRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     };
 
+    const handleMoustClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        setIsFlipped(!isFlipped);
+    }
+
     return (
         <div className="bio">
-            <div className="bio__img" ref={imageRef}>
-                <img src={bioImg} alt="Headshot" />
+            <div ref={imageRef} className={`bio__card ${isFlipped ? 'bio__card--flipped' : ''}`}>
+                <div className="bio__img"  onClick={handleMoustClick}>
+                    <img src={bioImg} alt="Headshot" />
+                </div>
+                <div className="bio__reverse" onClick={handleMoustClick}>
+                    
+                </div>
             </div>
 
             <h1 className="bio__title">Hi, I'm Mark.</h1>
