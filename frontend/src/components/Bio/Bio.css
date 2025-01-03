@@ -40,11 +40,26 @@
  }
 
 
-
  .bio__img img {
     height: 30rem;
  }
 
  .bio__title {
    font-size: 2.6rem;
+ }
+
+ 
+ .bio__skills {
+    font-size: 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+ }
+
+ .bio__skills > p {
+    margin: .3rem 0;
+    padding: 0 .2rem;
+ }
+
+ .bio__reverse > h2 {
+    font-size: 1.6rem;
  }

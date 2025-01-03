@@ -57,6 +57,8 @@ export default function Bio() {
         setIsFlipped(!isFlipped);
     }
 
+    const skillList = ['React', 'Vue', 'JavaScript', 'TypeScript', 'SCSS', 'HTML', 'Python', 'SQL', 'Git', 'Docker', 'CI/CD', 'Agile', 'Scrum', 'Leadership', 'Communication', 'Debugging', 'Teamwork', 'Adaptability'];
+
     return (
         <div className="bio">
             <div ref={imageRef} className={`bio__card ${isFlipped ? 'bio__card--flipped' : ''}`}>
@@ -64,7 +66,12 @@ export default function Bio() {
                     <img src={bioImg} alt="Headshot" />
                 </div>
                 <div className="bio__reverse" onClick={handleMoustClick}>
-                    
+                    <h2>Skills</h2>
+                    <div className="bio__skills">
+                        { skillList.map((skill, index) => (
+                            <p key={index} className="bio__skill">- {skill}</p>
+                        ))}
+                    </div>
                 </div>
             </div>
 
