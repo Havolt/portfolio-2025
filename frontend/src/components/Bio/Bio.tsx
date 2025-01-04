@@ -57,7 +57,7 @@ export default function Bio() {
         setIsFlipped(!isFlipped);
     }
 
-    const skillList = ['React', 'Vue', 'JavaScript', 'TypeScript', 'SCSS', 'HTML', 'Python', 'SQL', 'Git', 'Docker', 'CI/CD', 'Agile', 'Scrum', 'Leadership', 'Communication', 'Debugging', 'Teamwork', 'Adaptability'];
+    const skillList = ['React', 'Vue', 'JavaScript', 'TypeScript', 'SCSS', 'HTML', 'Python', 'Jest', 'SQL', 'Git', 'Docker', 'CI/CD', 'Agile', 'Scrum', 'Leadership',  'Debugging', 'Teamwork', 'Adaptability'];
 
     return (
         <div className="bio">
