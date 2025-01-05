@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faFileLines} from '@fortawesome/free-solid-svg-icons'
 import cv from '@/assets/cv.pdf'
-import './BioLinks.css'
+import './BioLinks.scss'
 
 function BioLinks() {
   return (

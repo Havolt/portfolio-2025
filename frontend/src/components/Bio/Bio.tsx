@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import BioLinks from '@/components/BioLinks/BioLinks';
 import BioBlurb from '@/components/BioBlurb/BioBlurb';
 import bioImg from '@/assets/bio.png'
-import './Bio.css';
+import './Bio.scss';
 
 export default function Bio() {
     const imageRef = useRef<HTMLDivElement>(null);
