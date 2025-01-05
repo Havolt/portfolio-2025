@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import BioLinks from '@/components/BioLinks/BioLinks';
 import BioBlurb from '@/components/BioBlurb/BioBlurb';
 import bioImg from '@/assets/bio.png'
@@ -6,23 +6,16 @@ import './Bio.scss';
 
 export default function Bio() {
     const imageRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [hasBeenFlipped, setHasBeenFlipped] = useState(false);
 
-    useEffect(() => {
-        // Rotate the image when the mouse moves over it
-        window.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseleave', handleMouseLeave);
-
-        return () => { // Cleanup function to remove event listeners when component unmounts
-            window.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseleave', handleMouseLeave);
-        };
-    }, []);
-
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = useCallback((e: MouseEvent) => {
         if (!imageRef.current) return;
         
         const { left, top, width, height } = imageRef.current.getBoundingClientRect();
+
+        const inverted = isFlipped ? -1 : 1;
         
         // Only apply effect when mouse is over the image (with small buffer)
         const buffer = 20;
@@ -45,32 +38,61 @@ export default function Bio() {
         const rotateY = (e.clientX - centerX) / 15;
         
         imageRef.current.style.transform = 
-            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    };
+            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY * inverted}deg)`;
+    }, [isFlipped]);
+
+    useEffect(() => {
+        window.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseleave', handleMouseLeave);
+        };
+    }, [handleMouseMove]);
 
     const handleMouseLeave = () => {
         if (!imageRef.current) return;
         imageRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     };
 
-    const handleMoustClick = () => {
-        setIsFlipped(!isFlipped);
+    const handleFlip = () => {
+        const element = containerRef.current;
+        if (element) {
+            element.style.animation = 'none';
+            // Force reflow
+            void element.offsetHeight;
+            element.style.animation = '';
+            setIsFlipped(!isFlipped);
+            setHasBeenFlipped(true);
+        }
+    };
+
+    const bioContainerClasses = () => {
+        if (isFlipped) {
+            return 'bio__container--flipped';
+        } else if (hasBeenFlipped) {
+            return 'bio__container--unflipped';
+        }
+        return '';
     }
 
     const skillList = ['React', 'Vue', 'JavaScript', 'TypeScript', 'SCSS', 'HTML', 'Python', 'Jest', 'SQL', 'Git', 'Docker', 'CI/CD', 'Agile', 'Scrum', 'Leadership',  'Debugging', 'Teamwork', 'Adaptability'];
 
     return (
         <div className="bio">
-            <div ref={imageRef} className={`bio__card ${isFlipped ? 'bio__card--flipped' : ''}`}>
-                <div className="bio__img"  onClick={handleMoustClick}>
-                    <img src={bioImg} alt="Headshot" />
-                </div>
-                <div className="bio__reverse" onClick={handleMoustClick}>
+            <div ref={containerRef} className={`bio__container ${bioContainerClasses()}`}>
+                <div ref={imageRef} className="bio__card">
+                    <div className="bio__img"  onClick={handleFlip}>
+                        <img src={bioImg} alt="Headshot" />
+                    </div>
+                <div className="bio__reverse" onClick={handleFlip}>
                     <h2>Skills</h2>
                     <div className="bio__skills">
                         { skillList.map((skill, index) => (
                             <p key={index} className="bio__skill">- {skill}</p>
                         ))}
+                        </div>
                     </div>
                 </div>
             </div>

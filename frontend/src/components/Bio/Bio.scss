@@ -1,23 +1,85 @@
+.bio__container {
+  box-shadow: 0 0 3rem rgba(213, 213, 213, 0.15);
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 20%;
+  background-color: #d5d5d514;
+  
+  &--flipped {
+    animation: flip 300ms ease-in-out forwards;
+
+    .bio__img {
+      animation: pop-out 150ms ease-in-out forwards;
+    }
+    .bio__reverse {
+      animation: pop-in 150ms ease-in-out forwards;
+    }
+  }
+
+  &--unflipped {
+    animation: flip-back 300ms ease-in-out forwards;
+
+    .bio__img {
+      animation: pop-in 150ms ease-in-out forwards;
+    }
+    .bio__reverse {
+      animation: pop-out 150ms ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes flip { // Flip in 3d to the right
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform:  rotateY(180deg);
+  }
+}
+
+@keyframes flip-back {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
 .bio__card {
   // Styles for the bio card
   width: 23rem;
   height: 30rem;
-  margin: 0 auto;
+  
   position: relative;
   cursor: pointer;
-  box-shadow: 0 0 3rem rgba(213, 213, 213, 0.15);
   border-radius: 20%;
+  
   overflow: hidden;
   border: 2px solid #5c5c5c;
+}
 
-  // Flipped card
-  &--flipped {
-    .bio__img {
-      display: none;
-    }
-    .bio__reverse {
-      display: block;
-    }
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pop-out {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -27,7 +89,7 @@
   transition: transform 300ms ease-out;
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-  z-index: 2; // Image is initially on top of the reverse card
+  opacity: 1;
 
   img {
     height: 30rem;
@@ -42,7 +104,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; // Reverse card is initially on top of the image
+  opacity: 0;
+  transform: rotateY(180deg); // Card will be flipped so set it so it's facing the right way
 
   h2 {
     font-size: 1.6rem;
