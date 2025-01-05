@@ -15,12 +15,12 @@
 
     // Styles for all links
     li {
-        transition: transform 0.3s ease-in-out;
-        color: white;
+        transition: transform 0.3s ease-in;
+        color: #cccccc;
 
         &:hover {
             transform: scale(1.2);
-            color: #0077b5;
+            color: white;
             cursor: pointer;
         }
     }
