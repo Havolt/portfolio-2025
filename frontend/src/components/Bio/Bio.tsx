@@ -66,6 +66,13 @@ export default function Bio() {
             setIsFlipped(!isFlipped);
             setHasBeenFlipped(true);
         }
+        clearImageTransform();
+    };
+
+    // Clear the image transform when the container is flipped
+    const clearImageTransform = () => {
+        if (!imageRef.current) return;
+        imageRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     };
 
     const bioContainerClasses = () => {
