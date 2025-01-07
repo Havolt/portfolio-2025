@@ -1,4 +1,3 @@
-import React from 'react'
 import './BioBlurb.css'
 
 export function BioBlurb() {

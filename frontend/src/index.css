@@ -30,6 +30,11 @@ h1 {
   line-height: 1.1;
 }
 
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
