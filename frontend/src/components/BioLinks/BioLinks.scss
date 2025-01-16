@@ -16,11 +16,11 @@
     // Styles for all links
     li {
         transition: transform 0.3s ease-in;
-        color: #cccccc;
+        color: var(--link-color);
 
         &:hover {
             transform: scale(1.2);
-            color: white;
+            color: var(--link-hover-color);
             cursor: pointer;
         }
     }

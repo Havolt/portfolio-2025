@@ -1,10 +1,10 @@
 .bio {
   &__container {
-    box-shadow: 0 0 3rem rgba(213, 213, 213, 0.15);
+    box-shadow: 0 0 3rem var(--card-shadow);
     width: fit-content;
     margin: 0 auto;
     border-radius: 20%;
-    background-color: #d5d5d514;
+    background-color: var(--card-bg);
 
     &--flipped {
       animation: flip 300ms ease-in-out forwards;
@@ -43,7 +43,7 @@
     border-radius: 20%;
 
     overflow: hidden;
-    border: 2px solid #5c5c5c;
+    border: 2px solid var(--border-color);
   }
 
 
@@ -61,7 +61,7 @@
   }
 
   &__reverse {
-    background-color: #1a1a1a;
+    background-color: var(--bg-secondary);
     width: 100%;
     height: 100%;
     border-radius: 20%;
