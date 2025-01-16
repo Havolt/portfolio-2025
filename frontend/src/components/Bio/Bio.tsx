@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import BioLinks from '@/components/BioLinks/BioLinks';
 import BioBlurb from '@/components/BioBlurb/BioBlurb';
-import bioImg from '@/assets/bio.png'
+import bioPng from '@/assets/bio.png';
+import bioWebp from '@/assets/bio.webp';
 import './Bio.scss';
 
 export default function Bio() {
@@ -90,15 +91,18 @@ export default function Bio() {
         <div className="bio">
             <div ref={containerRef} className={`bio__container ${bioContainerClasses()}`}>
                 <div ref={imageRef} className="bio__card">
-                    <div className="bio__img"  onClick={handleFlip}>
-                        <img src={bioImg} alt="Headshot" />
+                    <div className="bio__img" onClick={handleFlip}>
+                        <picture>
+                            <source srcSet={bioWebp} type="image/webp" />
+                            <img src={bioPng} alt="Mark Fitzpatrick - Full Stack Developer" />
+                        </picture>
                     </div>
-                <div className="bio__reverse" onClick={handleFlip}>
-                    <h2>Skills</h2>
-                    <div className="bio__skills">
-                        { skillList.map((skill, index) => (
-                            <p key={index} className="bio__skill">- {skill}</p>
-                        ))}
+                    <div className="bio__reverse" onClick={handleFlip}>
+                        <h2>Skills</h2>
+                        <div className="bio__skills">
+                            { skillList.map((skill, index) => (
+                                <p key={index} className="bio__skill">- {skill}</p>
+                            ))}
                         </div>
                     </div>
                 </div>
