@@ -1,17 +1,19 @@
-.bio-links-container {
-  position: fixed;
-  background-color: #00000061;
+.bio-portfolio-container {
   width: 100%;
-  bottom: 0;
-  left: 0;
-  height: 5.4rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
 }
 
-.bio-links {
-  // Styles for the links container
+.bio-portfolio {
+  // Styles for the portfolio container
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +27,7 @@
     font-size: 2.7rem;
   }
 
-  // Styles for all links
+  // Styles for all portfolio
   li {
     transition: transform 0.3s ease-in;
     color: var(--link-color);
