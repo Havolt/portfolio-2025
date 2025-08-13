@@ -148,8 +148,11 @@ export default function Bio() {
       </div>
 
       <h1 className="bio__title">Hi, I'm Mark.</h1>
-      <BioBlurb />
-      <BioPortfolio handleTogglePortfolio={togglePortfolio} />
+      {!expandPortfolio && <BioBlurb />}
+      <BioPortfolio
+        handleTogglePortfolio={togglePortfolio}
+        expandPortfolio={expandPortfolio}
+      />
       <BioLinks />
     </div>
   );

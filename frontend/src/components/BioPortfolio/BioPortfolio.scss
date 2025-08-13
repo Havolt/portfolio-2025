@@ -1,4 +1,4 @@
-.bio-portfolio-container {
+.bio-portfolio {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,9 +12,40 @@
   }
 }
 
-.bio-portfolio {
-  // Styles for the portfolio container
+.bio-portfolio__button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  cursor: pointer;
   display: flex;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+
+  span {
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.bio-portfolio--expanded {
+  .bio-portfolio__list {
+    display: flex;
+  }
+  .bio-portfolio__button {
+    span:last-child {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.bio-portfolio__list {
+  // Styles for the portfolio container
+  display: none;
   justify-content: center;
   align-items: center;
   list-style: none;
