@@ -82,7 +82,7 @@ function BioImage() {
       "perspective(1000px) rotateX(0deg) rotateY(0deg)";
   };
 
-  const bioContainerClasses = () => {
+  const getBioContainerClass = () => {
     if (isFlipped) {
       return "bio__container--flipped";
     } else if (hasBeenFlipped) {
@@ -90,6 +90,8 @@ function BioImage() {
     }
     return "";
   };
+
+  const bioContainerClasses = `bio__container ${getBioContainerClass()}`;
 
   const skillList = [
     "React",
@@ -109,10 +111,7 @@ function BioImage() {
   ];
 
   return (
-    <div
-      ref={containerRef}
-      className={`bio__container ${bioContainerClasses()}`}
-    >
+    <div ref={containerRef} className={bioContainerClasses}>
       <div ref={imageRef} className="bio__card">
         <div className="bio__img" onClick={handleFlip}>
           <picture>
