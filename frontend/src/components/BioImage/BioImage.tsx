@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import bioPng from "@/assets/bio.png";
 import bioWebp from "@/assets/bio.webp";
+import "./BioImage.scss";
 
 function BioImage() {
   const imageRef = useRef<HTMLDivElement>(null);
@@ -103,12 +104,8 @@ function BioImage() {
     "Git",
     "Docker",
     "CI/CD",
-    "Agile",
-    "Scrum",
-    "Leadership",
-    "Debugging",
-    "Teamwork",
-    "Adaptability",
+    "GAM",
+    "Stripe",
   ];
 
   return (
