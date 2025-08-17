@@ -148,7 +148,7 @@ export default function Bio() {
       </div>
 
       <h1 className="bio__title">Hi, I'm Mark.</h1>
-      {!expandPortfolio && <BioBlurb />}
+      <BioBlurb className={`${expandPortfolio ? "hide" : ""}`} />
       <BioPortfolio
         handleTogglePortfolio={togglePortfolio}
         expandPortfolio={expandPortfolio}
