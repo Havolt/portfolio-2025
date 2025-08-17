@@ -16,20 +16,28 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
       }`}
     >
       <button className="bio-portfolio__button" onClick={handleTogglePortfolio}>
-        <span>Show Portfolio</span>
+        <span>{expandPortfolio ? "Intro" : "Portfolio"}</span>
         <span>
           <FontAwesomeIcon icon={faChevronDown} />
         </span>
       </button>
 
+      {/* <hr /> */}
+
       <ul className="bio-portfolio__list">
-        <a
-          href="https://www.maze.markfz.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <li title="Maze">Maze</li>
-        </a>
+        <li>
+          <a
+            href="https://www.maze.markfz.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Maze
+          </a>
+          <p>
+            Interative recreation of the the maze adventure book by Christopher
+            Manson.
+          </p>
+        </li>
       </ul>
     </div>
   );
