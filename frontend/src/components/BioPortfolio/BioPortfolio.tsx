@@ -34,8 +34,8 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
             Maze
           </a>
           <p>
-            Interative recreation of the the maze adventure book by Christopher
-            Manson.
+            Explore an interactive version of Christopher Manson's classic maze
+            book, Maze Adventure.
           </p>
         </li>
       </ul>

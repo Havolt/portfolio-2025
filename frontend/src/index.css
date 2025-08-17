@@ -1,6 +1,6 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
+
   /* Dark theme (default) */
   --text-primary: rgba(255, 255, 255, 0.87);
   --bg-primary: #242424;
@@ -10,6 +10,7 @@
   --link-hover-color: white;
   --card-shadow: rgba(213, 213, 213, 0.15);
   --card-bg: #d5d5d514;
+  --footer-height: 5.4rem;
 
   color-scheme: light dark;
   color: var(--text-primary);
@@ -21,7 +22,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, html {
+body,
+html {
   /* Set REM to 10px */
   font-size: 62.5%;
   box-sizing: border-box;
@@ -45,7 +47,6 @@ h1 {
   text-align: center;
   padding: 2rem;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
