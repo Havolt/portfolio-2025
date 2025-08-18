@@ -15,7 +15,11 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
         expandPortfolio ? "bio-portfolio--expanded" : ""
       }`}
     >
-      <button className="bio-portfolio__button" onClick={handleTogglePortfolio}>
+      <button
+        className="bio-portfolio__button"
+        onClick={handleTogglePortfolio}
+        type="button"
+      >
         <span>{expandPortfolio ? "Intro" : "Portfolio"}</span>
         <span>
           <FontAwesomeIcon icon={faChevronDown} />

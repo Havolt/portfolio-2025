@@ -8,43 +8,43 @@ function BioLinks() {
   return (
     <div className="bio-links-container">
       <ul className="bio-links">
-        <a
-          href="https://www.linkedin.com/in/mark-fitzpatrick-491419100/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <li title="LinkedIn">
+        <li title="LinkedIn">
+          <a
+            href="https://www.linkedin.com/in/mark-fitzpatrick-491419100/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faLinkedin} />
-          </li>
-        </a>
-        <a
-          href="https://github.com/Havolt"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <li title="GitHub">
+          </a>
+        </li>
+        <li title="GitHub">
+          <a
+            href="https://github.com/Havolt"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faGithub} />
-          </li>
-        </a>
-        <a
-          href="mailto:markfitz815@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <li title="Email">
+          </a>
+        </li>
+        <li title="Email">
+          <a
+            href="mailto:markfitz815@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faEnvelope} />
-          </li>
-        </a>
-        <a
-          href={cv}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bio-links__resume"
-        >
-          <li title="Resume">
+          </a>
+        </li>
+        <li title="Resume">
+          <a
+            href={cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bio-links__resume"
+          >
             <FontAwesomeIcon icon={faFileLines} />
-          </li>
-        </a>
+          </a>
+        </li>
       </ul>
     </div>
   );

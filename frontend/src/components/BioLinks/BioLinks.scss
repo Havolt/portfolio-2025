@@ -30,9 +30,17 @@
     font-size: 2.7rem;
   }
 
-  // Styles for all links
   li {
     transition: transform 0.3s ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
+  // Styles for all links
+  a {
     color: var(--link-color);
 
     @media (prefers-color-scheme: light) {
@@ -40,9 +48,7 @@
     }
 
     &:hover {
-      transform: scale(1.1);
       color: var(--link-hover-color);
-      cursor: pointer;
     }
   }
 }
