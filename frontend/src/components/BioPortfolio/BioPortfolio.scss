@@ -10,14 +10,14 @@
   h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--text-primary);
   }
 }
 
 .bio-portfolio__button {
   background: none;
   border: none;
-  color: var(--text-color);
+  color: var(--text-primary);
   font-size: 1.8rem;
   cursor: pointer;
   display: flex;
@@ -31,6 +31,10 @@
 
   &:hover {
     color: var(--link-hover-color);
+
+    @media (prefers-color-scheme: light) {
+      color: var(--text-primary);
+    }
 
     svg {
       transform: rotateY(180deg) translateY(0.2rem);
@@ -84,6 +88,10 @@
     text-decoration: none;
     width: fit-content;
     color: #d5d5d5;
+
+    @media (prefers-color-scheme: light) {
+      color: var(--text-primary);
+    }
   }
 
   a:hover {

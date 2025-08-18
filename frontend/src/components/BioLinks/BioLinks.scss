@@ -8,6 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (prefers-color-scheme: light) {
+    background-color: #efefef;
+    border-top: 2px solid var(--border-color);
+  }
 }
 
 .bio-links {
@@ -29,6 +34,10 @@
   li {
     transition: transform 0.3s ease-in;
     color: var(--link-color);
+
+    @media (prefers-color-scheme: light) {
+      color: var(--text-primary);
+    }
 
     &:hover {
       transform: scale(1.1);
