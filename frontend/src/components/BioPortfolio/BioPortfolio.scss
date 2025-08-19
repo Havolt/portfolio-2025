@@ -57,7 +57,7 @@
   }
 
   .bio-portfolio__list {
-    max-height: 10rem;
+    max-height: 50rem;
   }
 }
 
@@ -73,6 +73,7 @@
   max-height: 0rem;
   transition: max-height 0.3s ease-in-out;
   overflow: hidden;
+  max-width: 60rem;
 
   li {
     display: flex;
@@ -81,6 +82,9 @@
     justify-content: center;
     align-items: center;
     color: var(--link-color);
+    background-color: #0f0f0f;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem 2rem 1rem;
   }
 
   a {
@@ -100,6 +104,6 @@
   }
 
   p {
-    margin: 0 auto;
+    margin: 0;
   }
 }
