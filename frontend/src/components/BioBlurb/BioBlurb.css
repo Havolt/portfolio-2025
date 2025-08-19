@@ -4,7 +4,7 @@
   transition: max-height 0.3s ease-in-out;
   max-height: 20rem;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 1.4rem;
 }
 
 .bio-blurb.hide {
