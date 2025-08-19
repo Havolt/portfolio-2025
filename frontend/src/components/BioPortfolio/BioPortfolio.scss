@@ -85,6 +85,11 @@
     background-color: #0f0f0f;
     border-radius: 2rem;
     padding: 0.5rem 1rem 2rem 1rem;
+
+    @media (prefers-color-scheme: light) {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
   }
 
   a {

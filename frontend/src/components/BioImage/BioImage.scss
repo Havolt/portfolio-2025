@@ -39,6 +39,8 @@
     // Styles for the bio card
     width: 23rem;
     height: 30rem;
+    max-height: 30rem;
+    max-width: 23rem;
 
     position: relative;
     cursor: pointer;
@@ -55,9 +57,19 @@
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
     opacity: 1;
+    height: inherit;
+    width: inherit;
+    max-width: inherit;
+    max-height: inherit;
 
-    img {
-      height: 30rem;
+    img,
+    picture,
+    source {
+      height: inherit;
+      height: inherit;
+      width: inherit;
+      max-width: inherit;
+      max-height: inherit;
     }
   }
 
