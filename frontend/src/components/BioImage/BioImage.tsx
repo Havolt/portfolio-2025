@@ -35,7 +35,7 @@ function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
       const { left, top, width, height } =
         imageRef.current.getBoundingClientRect();
 
-      const inverted = flipConditionsMet ? -1 : 1;
+      const inverted = isFlipped ? -1 : 1;
 
       // Only apply effect when mouse is over the image (with small buffer)
       const buffer = 20;
@@ -62,7 +62,7 @@ function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
         rotateY * inverted
       }deg)`;
     },
-    [flipConditionsMet]
+    [isFlipped]
   );
 
   useEffect(() => {
@@ -102,12 +102,16 @@ function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
   };
 
   const getBioContainerClass = () => {
+    let classes = "";
     if (flipConditionsMet) {
-      return "bio__container--flipped";
+      classes += "bio__container--flipped ";
     } else if (hasBeenFlipped) {
-      return "bio__container--unflipped";
+      classes += "bio__container--unflipped ";
     }
-    return "";
+    if (expandPortfolio) {
+      classes += "bio__container--port-expanded ";
+    }
+    return classes.trim();
   };
 
   const bioContainerClasses = `bio__container ${getBioContainerClass()}`;

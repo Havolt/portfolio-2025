@@ -29,6 +29,12 @@
         animation: pop-out 150ms ease-in-out forwards;
       }
     }
+
+    &--port-expanded:hover {
+      .bio__card {
+        cursor: default;
+      }
+    }
   }
 
   &__card {
