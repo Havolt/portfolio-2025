@@ -15,7 +15,7 @@ export default function Bio() {
 
   return (
     <div className="bio">
-      <BioImage />
+      <BioImage expandPortfolio={expandPortfolio} />
       <h1 className="bio__title">Hi, I'm Mark</h1>
       <BioBlurb className={`${expandPortfolio ? "hide" : ""}`} />
       <BioPortfolio

@@ -3,11 +3,30 @@ import bioPng from "@/assets/bio.png";
 import bioWebp from "@/assets/bio.webp";
 import "./BioImage.scss";
 
-function BioImage() {
+const skillList = [
+  "React",
+  "Vue",
+  "JavaScript",
+  "TypeScript",
+  "SCSS",
+  "HTML",
+  "Python",
+  "Jest",
+  "SQL",
+  "Git",
+  "Docker",
+  "CI/CD",
+  "GAM",
+  "Stripe",
+];
+
+function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
   const imageRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFlipped, setIsFlipped] = useState(false);
   const [hasBeenFlipped, setHasBeenFlipped] = useState(false);
+
+  const flipConditionsMet = isFlipped && !expandPortfolio;
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -16,7 +35,7 @@ function BioImage() {
       const { left, top, width, height } =
         imageRef.current.getBoundingClientRect();
 
-      const inverted = isFlipped ? -1 : 1;
+      const inverted = flipConditionsMet ? -1 : 1;
 
       // Only apply effect when mouse is over the image (with small buffer)
       const buffer = 20;
@@ -43,7 +62,7 @@ function BioImage() {
         rotateY * inverted
       }deg)`;
     },
-    [isFlipped]
+    [flipConditionsMet]
   );
 
   useEffect(() => {
@@ -64,7 +83,7 @@ function BioImage() {
 
   const handleFlip = () => {
     const element = containerRef.current;
-    if (element) {
+    if (element && !expandPortfolio) {
       element.style.animation = "none";
       // Force reflow
       void element.offsetHeight;
@@ -83,7 +102,7 @@ function BioImage() {
   };
 
   const getBioContainerClass = () => {
-    if (isFlipped) {
+    if (flipConditionsMet) {
       return "bio__container--flipped";
     } else if (hasBeenFlipped) {
       return "bio__container--unflipped";
@@ -92,23 +111,6 @@ function BioImage() {
   };
 
   const bioContainerClasses = `bio__container ${getBioContainerClass()}`;
-
-  const skillList = [
-    "React",
-    "Vue",
-    "JavaScript",
-    "TypeScript",
-    "SCSS",
-    "HTML",
-    "Python",
-    "Jest",
-    "SQL",
-    "Git",
-    "Docker",
-    "CI/CD",
-    "GAM",
-    "Stripe",
-  ];
 
   return (
     <div ref={containerRef} className={bioContainerClasses}>
