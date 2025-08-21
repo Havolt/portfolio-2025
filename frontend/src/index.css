@@ -2,20 +2,20 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   /* Dark theme (default) */
-  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-primary: #ffffffde;
   --bg-primary: #242424;
   --bg-secondary: #1a1a1a;
   --border-color: #5c5c5c;
   --link-color: #cccccc;
   --link-hover-color: white;
-  --card-shadow: rgba(213, 213, 213, 0.15);
+  --card-shadow: #d5d5d526;
   --card-bg: #d5d5d514;
   --footer-height: 6.4rem;
 
-  color-scheme: light dark;
   color: var(--text-primary);
   background-color: var(--bg-primary);
 
+  color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,8 +24,7 @@
 
 body,
 html {
-  /* Set REM to 10px */
-  font-size: 62.5%;
+  font-size: 62.5%; /* Set REM to 10px */
   box-sizing: border-box;
 }
 
@@ -33,13 +32,8 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 32rem;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 #root {
@@ -50,6 +44,7 @@ h1 {
 
 @media (prefers-color-scheme: light) {
   :root {
+    /* Light theme */
     --text-primary: #213547;
     --bg-primary: #edecec;
     --bg-secondary: #f5f5f5;
@@ -58,11 +53,5 @@ h1 {
     --link-hover-color: #213547;
     --card-shadow: rgba(0, 0, 0, 0.372);
     --card-bg: rgba(12, 12, 12, 0.174);
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
