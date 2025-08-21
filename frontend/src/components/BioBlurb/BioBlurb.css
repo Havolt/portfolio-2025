@@ -5,13 +5,13 @@
   max-height: 20rem;
   overflow: hidden;
   margin-bottom: 1.4rem;
-}
 
-.bio-blurb.hide {
-  max-height: 0;
-  margin-bottom: 0;
-}
+  p {
+    margin: 0.8rem 0;
+  }
 
-.bio-blurb p {
-  margin: 0.8rem 0;
+  &.hide {
+    max-height: 0;
+    margin-bottom: 0;
+  }
 }
