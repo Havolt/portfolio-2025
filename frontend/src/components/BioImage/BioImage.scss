@@ -19,14 +19,14 @@
     }
 
     &--unflipped {
-      animation: flip-back 300ms ease-in-out forwards;
+      animation: flip-back 300ms ease-in-out;
 
       .bio__img {
-        animation: pop-in 150ms ease-in-out forwards;
+        animation: pop-in 150ms ease-in-out;
       }
 
       .bio__reverse {
-        animation: pop-out 150ms ease-in-out forwards;
+        animation: pop-out 150ms ease-in-out;
       }
     }
 
@@ -157,5 +157,23 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+// Add shake animation
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+    box-shadow: 0 0 3rem rgba(245, 62, 62, 0.372);
+  }
+
+  25%,
+  75% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
   }
 }

@@ -62,7 +62,7 @@ function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
         rotateY * inverted
       }deg)`;
     },
-    [isFlipped]
+    [isFlipped],
   );
 
   useEffect(() => {
@@ -90,6 +90,18 @@ function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
       element.style.animation = "";
       setIsFlipped(!isFlipped);
       setHasBeenFlipped(true);
+    } else {
+      // Add a quick rotate left and right as if image is saying no to flipping when portfolio is expanded
+      if (element) {
+        element.style.animation += "shake 0.5s";
+        setHasBeenFlipped(false);
+      }
+
+      setTimeout(() => {
+        if (element) {
+          element.style.animation = "";
+        }
+      }, 500);
     }
     clearImageTransform();
   };
