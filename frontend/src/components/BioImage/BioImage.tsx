@@ -128,9 +128,22 @@ function BioImage({ expandPortfolio }: { expandPortfolio: boolean }) {
 
   const bioContainerClasses = `bio__container ${getBioContainerClass()}`;
 
+  const handleImageKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleFlip();
+    }
+  };
+
   return (
     <div ref={containerRef} className={bioContainerClasses}>
-      <div ref={imageRef} className="bio__card">
+      <div
+        ref={imageRef}
+        className="bio__card"
+        aria-label="Bio Image"
+        tabIndex={0}
+        onKeyDown={handleImageKeyDown}
+      >
         <div className="bio__img" onClick={handleFlip}>
           <picture>
             <source srcSet={bioWebp} type="image/webp" />
