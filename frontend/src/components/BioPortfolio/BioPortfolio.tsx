@@ -1,3 +1,5 @@
+import { useRef, useEffect } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,7 +10,32 @@ type propsTypes = {
   expandPortfolio: boolean;
 };
 
+const PORTFOLIO_ITEMS = [
+  {
+    name: "Maze",
+    description:
+      "Explore an interactive version of Christopher Manson's classic maze book, Maze Adventure.",
+    link: "https://www.maze.markfz.com/",
+  },
+];
+
 function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
+  const portfolioListRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    if (expandPortfolio) {
+      setTimeout(() => {
+        if (!portfolioListRef.current) {
+          return;
+        }
+        window.scrollTo({
+          top: portfolioListRef.current.offsetTop + 100,
+          behavior: "smooth",
+        });
+      }, 150);
+    }
+  }, [expandPortfolio]);
+
   return (
     <div
       className={`bio-portfolio ${
@@ -20,7 +47,7 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
         onClick={handleTogglePortfolio}
         type="button"
       >
-        <span>{expandPortfolio ? "Intro" : "Portfolio"}</span>
+        <span>{expandPortfolio ? "Hide Portfolio" : "Show Portfolio"}</span>
         <span>
           <FontAwesomeIcon icon={faChevronDown} />
         </span>
@@ -28,20 +55,15 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
 
       {/* <hr /> */}
 
-      <ul className="bio-portfolio__list">
-        <li>
-          <a
-            href="https://www.maze.markfz.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Maze
-          </a>
-          <p>
-            Explore an interactive version of Christopher Manson's classic maze
-            book, Maze Adventure.
-          </p>
-        </li>
+      <ul className="bio-portfolio__list" ref={portfolioListRef}>
+        {PORTFOLIO_ITEMS.map((item, index) => (
+          <li key={index}>
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              {item.name}
+            </a>
+            <p>{item.description}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );

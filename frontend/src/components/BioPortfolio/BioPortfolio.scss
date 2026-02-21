@@ -32,6 +32,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    min-height: 6rem;
 
     svg {
       transition: transform 0.3s ease-in-out;
