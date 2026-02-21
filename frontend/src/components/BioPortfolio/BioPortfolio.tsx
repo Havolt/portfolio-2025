@@ -57,12 +57,12 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
 
       <ul className="bio-portfolio__list" ref={portfolioListRef}>
         {PORTFOLIO_ITEMS.map((item, index) => (
-          <li key={index}>
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              {item.name}
-            </a>
-            <p>{item.description}</p>
-          </li>
+          <a href={item.link} target="_blank" rel="noopener noreferrer">
+            <li key={index}>
+              <h4>{item.name}</h4>
+              <p>{item.description}</p>
+            </li>
+          </a>
         ))}
       </ul>
     </div>

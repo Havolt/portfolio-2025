@@ -65,7 +65,7 @@
     gap: 1rem;
     max-height: 0rem;
     transition: max-height 0.3s ease-in-out;
-    overflow: hidden;
+    overflow-y: hidden;
     max-width: 60rem;
 
     li {
@@ -76,8 +76,20 @@
       align-items: center;
       color: var(--text-primary);
       background-color: var(--bg-secondary);
+      border: 2px solid var(--bg-secondary);
+
       border-radius: 2rem;
       padding: 0.5rem 1rem 2rem 1rem;
+
+      &:hover {
+        cursor: pointer;
+        border: 2px solid var(--text-primary);
+      }
+    }
+
+    h4 {
+      margin: 0;
+      font-size: 3.2rem;
     }
 
     a {
@@ -89,11 +101,11 @@
 
     a:hover {
       color: var(--link-hover-color);
-      text-decoration: underline;
     }
 
     p {
       margin: 0;
+      font-size: 1.6rem;
     }
   }
 }
