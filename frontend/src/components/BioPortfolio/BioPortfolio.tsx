@@ -14,8 +14,14 @@ const PORTFOLIO_ITEMS = [
   {
     name: "Maze",
     description:
-      "Explore an interactive version of Christopher Manson's classic maze book, Maze Adventure.",
-    link: "https://www.maze.markfz.com/",
+      "Explore an interactive version of Christopher Manson’s classic maze book, Maze Adventure.",
+    link: "https://maze.markfz.com/",
+  },
+  {
+    name: "Durrower",
+    description:
+      "Discover a randomly generated selection of creepy stories from across Reddit.",
+    link: "https://durrower.markfz.com/",
   },
 ];
 
