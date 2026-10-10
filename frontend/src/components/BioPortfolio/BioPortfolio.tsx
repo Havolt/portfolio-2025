@@ -37,11 +37,19 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
     }
 
     setPortfolioListVisible(true);
-    const animationFrame = window.requestAnimationFrame(() => {
-      setPortfolioListExpanded(true);
+    let secondAnimationFrame: number | undefined;
+    const firstAnimationFrame = window.requestAnimationFrame(() => {
+      secondAnimationFrame = window.requestAnimationFrame(() => {
+        setPortfolioListExpanded(true);
+      });
     });
 
-    return () => window.cancelAnimationFrame(animationFrame);
+    return () => {
+      window.cancelAnimationFrame(firstAnimationFrame);
+      if (secondAnimationFrame !== undefined) {
+        window.cancelAnimationFrame(secondAnimationFrame);
+      }
+    };
   }, [expandPortfolio]);
 
   useEffect(() => {
