@@ -48,22 +48,33 @@
   }
 
   &__list {
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     list-style: none;
     margin: 0;
     padding: 0;
     font-size: 1.6rem;
     gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 500px;
     max-height: 0rem;
-    transition: max-height 0.3s ease-in-out;
-    overflow: hidden;
-    max-width: 60rem;
+    opacity: 0;
+    transition:
+      max-height 0.3s ease-in-out,
+      opacity 0.2s ease-in-out;
+    overflow: clip;
+
+    li {
+      width: 100%;
+    }
 
     a {
       font-size: 2.2em;
       text-decoration: none;
-      width: fit-content;
+      width: 100%;
+      box-sizing: border-box;
       color: var(--text-primary);
       border: 2px solid var(--bg-secondary);
       border-radius: 2rem;
@@ -99,5 +110,6 @@
 
   &__list--expanded {
     max-height: 50rem;
+    opacity: 1;
   }
 }
