@@ -8,17 +8,10 @@
   transition: max-height 0.3s ease-in-out;
 
   &--expanded {
-    .bio-portfolio__list {
-      display: flex;
-    }
     .bio-portfolio__button {
       span:last-child {
         transform: rotate(180deg);
       }
-    }
-
-    .bio-portfolio__list {
-      max-height: 50rem;
     }
   }
 
@@ -55,7 +48,6 @@
   }
 
   &__list {
-    // Styles for the portfolio container
     justify-content: center;
     align-items: center;
     list-style: none;
@@ -65,7 +57,7 @@
     gap: 1rem;
     max-height: 0rem;
     transition: max-height 0.3s ease-in-out;
-    overflow-y: hidden;
+    overflow: hidden;
     max-width: 60rem;
 
     a {
@@ -103,5 +95,9 @@
       margin: 0;
       font-size: 1.6rem;
     }
+  }
+
+  &__list--expanded {
+    max-height: 50rem;
   }
 }

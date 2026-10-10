@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState, type TransitionEvent } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -27,6 +27,22 @@ const PORTFOLIO_ITEMS = [
 
 function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
   const portfolioListRef = useRef<HTMLUListElement>(null);
+  const [portfolioListVisible, setPortfolioListVisible] = useState(expandPortfolio);
+  const [portfolioListExpanded, setPortfolioListExpanded] = useState(false);
+
+  useEffect(() => {
+    if (!expandPortfolio) {
+      setPortfolioListExpanded(false);
+      return;
+    }
+
+    setPortfolioListVisible(true);
+    const animationFrame = window.requestAnimationFrame(() => {
+      setPortfolioListExpanded(true);
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [expandPortfolio]);
 
   useEffect(() => {
     if (expandPortfolio) {
@@ -41,6 +57,14 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
       }, 150);
     }
   }, [expandPortfolio]);
+
+  const handlePortfolioListTransitionEnd = (
+    event: TransitionEvent<HTMLUListElement>,
+  ) => {
+    if (event.propertyName === "max-height" && !expandPortfolio) {
+      setPortfolioListVisible(false);
+    }
+  };
 
   return (
     <div
@@ -61,7 +85,15 @@ function BioPortfolio({ handleTogglePortfolio, expandPortfolio }: propsTypes) {
 
       {/* <hr /> */}
 
-      <ul className="bio-portfolio__list" ref={portfolioListRef}>
+      <ul
+        className={`bio-portfolio__list ${
+          portfolioListExpanded ? "bio-portfolio__list--expanded" : ""
+        }`}
+        ref={portfolioListRef}
+        onTransitionEnd={handlePortfolioListTransitionEnd}
+        style={{ display: portfolioListVisible ? "flex" : "none" }}
+        aria-hidden={!portfolioListVisible}
+      >
         {PORTFOLIO_ITEMS.map((item, index) => (
           <li key={index}>
             <a
